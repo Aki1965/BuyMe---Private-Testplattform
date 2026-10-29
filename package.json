@@ -1,0 +1,21 @@
+{
+  "name": "buyme-private-testplattform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Responsive BuyMe-Testplattform mit Marktplatz, Mitglieder-, Anbieter- und Adminbereich in HTML, CSS und JavaScript.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "start": "node scripts/server.mjs",
+    "preview": "node scripts/server.mjs --directory dist",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test",
+    "verify": "node scripts/verify.mjs",
+    "translations:build": "node scripts/build-translations.mjs",
+    "translations:check": "node scripts/build-translations.mjs --check"
+  }
+}

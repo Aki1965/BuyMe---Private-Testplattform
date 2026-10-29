@@ -1,0 +1,8 @@
+import {addToCart,updateCart,checkout} from './commerce.js';
+// Shared interactions for the platform and isolated UI validation.
+export function installCommerceInteractions(root,{context,draft,changed,error}){
+ root.addEventListener('click',e=>{const b=e.target.closest('[data-commerce="quantity"]');if(!b||b.disabled)return;e.preventDefault();try{const c=context();updateCart(c.state,c.owner,b.dataset.key,b.dataset.quantity);changed('quantity',null,c);}catch(err){error(err);}});
+ root.addEventListener('input',e=>{const f=e.target.closest('[data-form="purchase-checkout"]');if(f)draft(Object.fromEntries(new FormData(f)));});
+ root.addEventListener('change',e=>{const f=e.target.closest('[data-form="purchase-checkout"]');if(f)draft(Object.fromEntries(new FormData(f)));});
+ root.addEventListener('submit',e=>{const f=e.target;if(!['cart-add','purchase-checkout'].includes(f.dataset.form))return;e.preventDefault();const b=f.querySelector('[type="submit"]');if(b.disabled)return;b.disabled=true;const data=Object.fromEntries(new FormData(f));try{const c=context();let result;if(f.dataset.form==='cart-add'){if(c.role&&c.role!=='member')throw Error('Für einen Kauf bitte mit einem Mitgliedskonto anmelden.');result=addToCart(c.state,c.owner,f.dataset.id,data.variant,data.quantity);}else{if(c.role!=='member')throw Error('Bitte mit einem Mitgliedskonto anmelden.');result=checkout(c.state,c.owner,{...data,token:c.token});}changed(f.dataset.form,result,c);}catch(err){const box=f.querySelector('.form-error');if(box){box.textContent=err.message;box.focus();}else error(err);}finally{if(b.isConnected)b.disabled=false;}});
+}

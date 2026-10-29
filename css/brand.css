@@ -1,0 +1,111 @@
+/* BuyMe identity, shared by the marketplace and Admin Cockpit.
+   Source: BuyMe_Markenmappe.pdf, 23.10.2026, pages 2–4.
+   The three brand colors are measured orientation values, not formal CI specs.
+   The original logo is displayed unchanged, including its light background. */
+:root {
+  --brand-blue: #1d7cfc;
+  --brand-violet: #723cfe;
+  --brand-navy: #123563;
+  --brand-paper: #fdfdfd;
+  --brand-soft: #edf4ff;
+  --brand-soft-violet: #f3efff;
+  --brand-action: #165dc1;
+  --brand-action-hover: #124b9c;
+  --brand-muted: #62748f;
+  --blue: var(--brand-action);
+  --blue-dark: var(--brand-action-hover);
+  --navy: var(--brand-navy);
+  --text: #253b59;
+  --muted: var(--brand-muted);
+  --line: #e1e7f2;
+  --bg: #f6f8fc;
+  color: var(--text);
+  background: var(--bg);
+}
+
+:focus-visible { outline-color: var(--brand-violet); }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 1;
+  letter-spacing: normal;
+  background: var(--brand-paper);
+  border-radius: 3px;
+}
+.brand-logo { display: block; width: 148px; height: auto; aspect-ratio: 2400 / 948; }
+.platform .header-inner { padding-block: 14px; }
+.platform .small-brand .brand-logo { width: 132px; }
+.admin-app .sidebar .brand { margin-left: 12px; }
+.admin-app .sidebar .brand-logo { width: 170px; }
+.admin-app .brand-caption { color: var(--brand-navy); letter-spacing: 1.8px; margin-top: 10px; }
+
+h1, h2, h3, .hero h1, .stat-value, .stat > strong,
+.cashback-hero strong, .account-summary-stats strong { color: var(--brand-navy); }
+.eyebrow, .hero .eyebrow { color: #6432d7; }
+.page-heading p, .hero p, .stat-top, .stat-label, .stat-sub,
+.stat small, .hero-trust, .header-label { color: var(--brand-muted); }
+
+.btn.primary, .button.primary {
+  color: #fff;
+  background: var(--brand-action);
+  box-shadow: 0 3px 8px #1d7cfc20;
+}
+.btn.primary:hover, .button.primary:hover { background: var(--brand-action-hover); }
+.btn.secondary { color: var(--brand-navy); border-color: #cfdaec; }
+.btn.white, .btn.text { color: var(--brand-action); }
+.demo-strip { background: #f1f3fe; border-color: #e2e4f5; color: var(--brand-muted); }
+.demo-strip strong, .demo-strip button { color: var(--brand-navy); }
+.wallet-chip { background: var(--brand-soft-violet); border-color: #e3dafc; color: #6030c7; }
+.main-nav a { color: var(--brand-muted); }
+.main-nav a.active { color: #6432d7; border-color: var(--brand-violet); }
+.main-nav a.active span { color: #6432d7; background: var(--brand-soft-violet); }
+.nav-item.active { color: #6432d7; background: var(--brand-soft-violet); }
+.nav-item.active b { color: #6432d7; background: #e6ddff; }
+.tab.selected, .drawer-tabs button.selected, .detail-tabs button.active {
+  color: #6432d7;
+  border-color: var(--brand-violet);
+}
+.tab.selected span, .inbox-tabs button.selected { background: var(--brand-soft-violet); color: #6432d7; }
+
+.hero {
+  background: radial-gradient(ellipse at 90% 80%, #e8ddff80, transparent 65%),
+    linear-gradient(115deg, #f0f6ff, #f7f4ff);
+  border-color: #e0e3f5;
+}
+.hero h1 span { color: var(--brand-violet); }
+.hero-trust .icon, .floating-note .icon { color: var(--brand-violet); }
+.showcase-card { border-color: #d9dff3; box-shadow: 0 20px 50px #453b9820; }
+.showcase-art { background: linear-gradient(135deg, #e5f0ff, #eee5ff); }
+.showcase-art > .icon { color: var(--brand-blue); }
+.showcase-art > span, .showcase-amount strong { color: var(--brand-violet); }
+.showcase-top, .showcase-top small, .showcase-amount > span,
+.floating-tag, .floating-note, .floating-note small { color: var(--brand-muted); }
+.cashback-block, .cashback-hero { background: linear-gradient(115deg, var(--brand-soft), #f5f0ff); border-color: #dedff6; }
+.cashback-block strong { color: var(--brand-violet); }
+.cashback-block > span, .cashback-block small, .cashback-hero > div > span,
+.cashback-hero small { color: var(--brand-muted); }
+.provider-banner {
+  background: linear-gradient(115deg, var(--brand-navy), #214d96 55%, #6232c5);
+  border-color: transparent;
+}
+.provider-banner p, .provider-banner .eyebrow { color: #e2eaff; }
+.provider-banner h2 { color: #fff; }
+.stat-icon:not(.amber):not(.red) { background: var(--brand-soft-violet); color: var(--brand-violet); }
+.account-summary-stats > div { background: linear-gradient(135deg, #f0f6ff, #f7f3ff); }
+
+@media (max-width: 1200px) and (min-width: 901px) {
+  .admin-app .sidebar .brand-logo { width: 152px; }
+}
+@media (max-width: 900px) {
+  .admin-app .sidebar .brand { margin: 0; }
+  .admin-app .sidebar .brand-logo { width: 56px; }
+  .platform .brand-logo { width: 132px; }
+}
+@media (max-width: 700px) {
+  .admin-app .sidebar .brand-logo { width: 46px; }
+}
+@media (max-width: 550px) {
+  .platform .header-inner { padding-block: 12px; }
+  .platform .brand-logo { width: 116px; }
+}

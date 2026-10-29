@@ -1,0 +1,36 @@
+/* Compact offer tiles on the marketplace; detail and account views keep their layout. */
+.market-section .offer-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.market-section .offer-card { display: flex; flex-direction: column; }
+.market-section .offer-art { height: 112px; flex-shrink: 0; }
+.market-section .offer-art > .icon { width: 70px; height: 70px; }
+.market-section .art-label { left: 12px; top: 11px; max-width: 60%; line-height: 1.5; }
+.market-section .art-cashback { right: 10px; bottom: 10px; padding: 7px 10px; font-size: 20px; }
+.market-section .art-cashback small { font-size: 8px; margin-top: 2px; }
+.market-section .offer-card-body { padding: 14px; display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.market-section .provider-line { margin-bottom: 7px; min-height: 27px; overflow-wrap: anywhere; }
+.market-section .offer-title { font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; }
+.market-section .offer-subcategory { margin: 6px 0 0; line-height: 1.5; }
+.market-section .offer-card-body > p { font-size: 11px; line-height: 1.5; min-height: 33px; margin: 8px 0 10px; }
+.market-section .offer-meta { padding-bottom: 9px; font-size: 10px; flex-wrap: wrap; gap: 3px 8px; }
+.market-section .offer-meta > span { overflow-wrap: anywhere; }
+.market-section .offer-card-bottom { margin-top: auto; padding-top: 6px; gap: 6px; line-height: 1.4; }
+.market-section .offer-card-bottom > span { min-width: 0; }
+.market-section .offer-card-bottom > a { min-height: 36px; flex-shrink: 0; }
+.market-section .market-filters { margin-bottom: 16px; }
+
+@media (max-width: 1179px) {
+  .market-section .offer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 859px) {
+  .market-section .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+}
+@media (max-width: 559px) {
+  .market-section .offer-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .market-section .offer-art { height: 100px; }
+  .market-section .offer-art > .icon { width: 64px; height: 64px; }
+  .market-section .offer-card-body { padding: 13px 14px; }
+  .market-section .offer-title { font-size: 16px; }
+}

@@ -1,0 +1,123 @@
+/* Colors observed on the rendered buy-me.net page on 25.10.2026.
+   Original brand artwork remains available; the light logo is the site's SVG. */
+:root {
+  --site-gradient: linear-gradient(165deg, #06113a, #0b1e63 25%, #1746b8 62%, #5b35d6);
+  --site-button: linear-gradient(0deg, #315bff, #6b4dff);
+  --site-categories: linear-gradient(#c3c4dd, #e0ddf2);
+  --site-offers: linear-gradient(#dae0f2bf, #e7dff3);
+  --site-footer: #071126;
+  --brand-action: #315bff;
+  --brand-action-hover: #274be0;
+  --brand-soft-violet: #ece6ff;
+  --bg: #e0ddf2;
+  --line: #d6d9e9;
+  background: var(--bg);
+}
+body.platform, body.admin-app {
+  background: linear-gradient(180deg, #c3c4dd, #e0ddf2 500px, #e7dff3);
+  background-attachment: fixed;
+}
+.btn.primary, .button.primary {
+  background: var(--site-button);
+  color: #fff;
+  box-shadow: 0 5px 12px #14266b25;
+}
+.btn.primary:hover, .button.primary:hover {
+  background: linear-gradient(0deg, #274be0, #5b3de2);
+}
+.demo-strip { background: #eef0fb; border-color: #d7dced; }
+.platform .site-header {
+  background: linear-gradient(120deg, #06113a, #0b1e63 60%, #1746b8);
+  border-color: #ffffff1f;
+}
+.platform .main-nav {
+  background: linear-gradient(120deg, #0b1e63, #1746b8);
+  border-color: #ffffff24;
+}
+.platform .site-header .brand, .platform footer .brand,
+.admin-app .sidebar .brand { background: transparent; border-radius: 0; }
+.brand-logo { aspect-ratio: 239 / 68; }
+.platform .header-label, .platform .provider-entry,
+.platform .signed-account, .platform .main-nav a,
+.platform .auth-header-actions > .btn.text { color: #fff; }
+.platform .header-label { border-color: #ffffff35; }
+.platform .signed-account small { color: #d8e3ff; }
+.platform .main-nav a.active { color: #fff; border-color: #b5a3ff; }
+.platform .main-nav a span { background: #ffffff20; color: #fff; }
+.platform .auth-header-actions > .btn.secondary {
+  background: #ffffff0d; border-color: #ffffff65; color: #fff;
+}
+.platform .auth-header-actions > .btn.secondary:hover { background: #ffffff20; }
+.platform .wallet-chip { color: #12245b; background: #f1c16f; border-color: #f8d69b; }
+.platform .signed-account .avatar { color: #23408b; background: #fff; }
+
+.hero {
+  background: var(--site-gradient);
+  border-color: #244399;
+  box-shadow: 0 10px 26px #15226418;
+}
+.hero h1, .hero h1 span { color: #fff; }
+.hero p, .hero .eyebrow, .hero .hero-trust { color: #e5eaff; }
+.hero .hero-trust .icon, .hero-actions .btn.text { color: #fff; }
+.showcase-card { background: #203f91; border-color: #3c58a4; box-shadow: 0 20px 45px #07112638; }
+.showcase-card .showcase-top, .showcase-card .showcase-top small,
+.showcase-card .showcase-amount > span, .showcase-card .showcase-amount strong { color: #fff; }
+.showcase-card .showcase-amount > .showcase-tick { color: #43855b; }
+.showcase-card .showcase-art { background: linear-gradient(135deg, #fff, #ece8fc); }
+.showcase-card .provider-initial { background: #ffffff20; color: #fff; }
+.how-strip { background: #ffffffc9; border-color: #d0d2e6; }
+.category-chips button { background: #ffffffbd; color: #263457; border-color: #d4d5e7; }
+.category-chips button .icon { color: #4162ff; }
+.category-chips button.selected { background: #f0ebff; border-color: #8c75f8; color: #5736c7; }
+.category-chips button.selected .icon { color: #5736c7; }
+.offer-card, .panel, .table-card, .stat { border-color: #d5d8e8; }
+.cashback-block, .cashback-hero { background: linear-gradient(135deg, #e4e8fc, #e9e0fa); border-color: #d2ccec; }
+.provider-banner { background: var(--site-gradient); }
+.provider-banner p, .provider-banner .eyebrow { color: #e5eaff; }
+.account-summary-stats > div { background: linear-gradient(135deg, #e9edfc, #eee6fa); }
+
+.auth-intro { background: var(--site-gradient); border-radius: 16px; padding: 36px; }
+.auth-intro h1, .auth-intro h1 span { color: #fff; }
+.auth-intro .eyebrow, .auth-intro p, .auth-intro .auth-benefits { color: #e5eaff; }
+.auth-intro .auth-benefits .icon, .auth-intro > .btn.text { color: #fff; }
+.auth-panel { background: #fff; }
+.auth-test-note { background: #f0ecfa; border-color: #ded6f1; }
+
+.platform footer {
+  max-width: none;
+  margin: 35px 0 0;
+  padding: 36px max(25px, calc((100vw - 1280px) / 2));
+  background: var(--site-footer);
+  border-color: #ffffff18;
+}
+.platform footer p, .platform footer > div > span,
+.platform footer > div:last-child a, .platform footer button { color: #d5dcef; }
+
+.admin-app .sidebar { background: var(--site-gradient); border-color: #243c82; }
+.admin-app .sidebar .brand-caption, .admin-app .sidebar .workspace strong,
+.admin-app .sidebar .profile strong, .admin-app .sidebar .demo-card strong { color: #fff; }
+.admin-app .sidebar .nav-label, .admin-app .sidebar .workspace small,
+.admin-app .sidebar .profile small, .admin-app .sidebar .demo-card p,
+.admin-app .sidebar .admin-home-link, .admin-app .sidebar .help-link { color: #d2ddf9; }
+.admin-app .sidebar .nav-item { color: #e1e7fb; }
+.admin-app .sidebar .nav-item:hover { background: #ffffff16; }
+.admin-app .sidebar .nav-item b { color: #e8e2ff; background: #ffffff16; }
+.admin-app .sidebar .nav-item.active { color: #fff; background: #ffffff25; }
+.admin-app .sidebar .nav-item.active b { color: #fff; background: #ffffff24; }
+.admin-app .sidebar .workspace, .admin-app .sidebar .demo-card { background: #ffffff0d; border-color: #ffffff28; }
+.admin-app .sidebar .workspace-icon { background: #ffffff20; color: #fff; }
+.admin-app .sidebar .demo-card button { color: #fff; }
+.admin-app .sidebar .profile { border-color: #ffffff2a; }
+.admin-app .topbar { background: #071841; border-color: #ffffff20; }
+.admin-app .topbar .breadcrumb, .admin-app .topbar .breadcrumb strong,
+.admin-app .topbar .admin-platform-link, .admin-app .topbar .text-button { color: #edf0ff; }
+.admin-app .topbar .private-tag { background: #ffffff10; border-color: #ffffff2c; color: #e7edff; }
+
+@media(max-width:750px) {
+  .auth-intro { padding: 25px; }
+  .auth-intro p { margin-bottom: 0; }
+}
+@media(max-width:550px) {
+  .platform footer { margin: 25px 0 0; padding: 28px 16px; }
+  .auth-intro { padding: 24px 22px; }
+}

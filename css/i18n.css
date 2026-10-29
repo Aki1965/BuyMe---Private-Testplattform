@@ -1,0 +1,16 @@
+.language-picker{position:relative;flex-shrink:0;font-size:12px;z-index:20;color:#fff}
+.language-picker summary{display:flex;align-items:center;gap:8px;list-style:none;cursor:pointer;border:1px solid #ffffff55;border-radius:8px;padding:10px 12px;background:#ffffff0b;min-height:39px;white-space:nowrap}
+.language-picker summary::-webkit-details-marker{display:none}
+.language-picker summary:hover{background:#ffffff20}
+.language-picker summary:focus-visible{outline:3px solid #c5b6ff;outline-offset:3px}
+.language-picker summary>svg{height:17px;width:17px;flex-shrink:0}
+.language-code{display:none}.language-chevron{font-size:14px;line-height:1}
+.language-options{position:absolute;right:0;top:calc(100% + 8px);min-width:190px;padding:6px;background:#fff;border:1px solid #d9deef;border-radius:10px;box-shadow:0 12px 35px #07112635;color:#173563;z-index:100}
+.language-options button{display:flex;justify-content:space-between;align-items:center;width:100%;padding:11px 12px;font-size:13px;text-align:left;background:none;border-radius:6px;gap:20px;white-space:nowrap}
+.language-options button:hover,.language-options button:focus-visible{background:#f1edff}
+.language-options button.selected{background:#ede6ff;color:#6032cd;font-weight:650}
+.language-check{visibility:hidden}.selected>.language-check{visibility:visible}
+.site-header .header-inner{column-gap:18px}.site-header .auth-header-actions{flex-wrap:wrap}
+.admin-app .topbar-right{gap:14px}.admin-app .language-picker summary{padding:8px 10px;min-height:35px}
+@media(max-width:1100px){.language-current{display:none}.language-code{display:inline}.language-picker summary{padding:9px 10px;gap:6px}}
+@media(max-width:550px){.site-header .auth-header-actions{order:3;width:100%;justify-content:flex-end;margin-left:0}.site-header .language-picker{margin-left:auto}.language-picker summary{min-height:35px;padding:8px 10px}.site-header .header-inner{row-gap:10px}.admin-app .topbar-right{gap:9px}.admin-app .language-picker summary{padding:7px}.admin-app .language-picker .language-chevron{display:none}.language-options{min-width:175px}}

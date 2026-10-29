@@ -1,0 +1,20 @@
+.subcategory-navigation{background:#ffffffad;border:1px solid #cccce3;border-radius:10px;padding:17px 18px;margin:-7px 0 20px}
+.subcategory-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:13px}
+.subcategory-heading strong{font-size:12px;color:#123563}
+.subcategory-heading span{font-size:10px;color:#64738f;white-space:nowrap}
+.subcategory-chips{display:flex;gap:8px;flex-wrap:wrap}
+.subcategory-chips button{font-size:11px;line-height:1.5;padding:8px 11px;background:#fff;border:1px solid #d7d9e9;border-radius:7px;color:#415675;text-align:left}
+.subcategory-chips button:hover{background:#f2edff;border-color:#a594eb}
+.subcategory-chips button.selected{background:#6541dd;color:#fff;border-color:#6541dd}
+.market-filters{display:grid;grid-template-columns:minmax(190px,1.6fr) minmax(110px,.85fr) minmax(160px,1fr) minmax(160px,1fr) minmax(130px,.85fr)}
+.market-filters label,.market-filters select{min-width:0;width:100%;max-width:none}
+.market-filters select:disabled{color:#8993a8;background:#f4f5fa;cursor:not-allowed}
+.offer-subcategory{font-size:10px;line-height:1.8;color:#6745bb;margin:8px 0 5px;overflow-wrap:anywhere}
+.deal-classification{display:flex;gap:7px;align-items:center;font-size:11px;line-height:1.8;color:#6745bb;margin:0 0 16px}
+.deal-classification .icon{width:15px;height:15px}
+.admin-app .filter-bar{flex-wrap:wrap}
+.admin-app .filter-selects{flex-wrap:wrap;min-width:0}
+.admin-app #filter-category,.admin-app #filter-subcategory{max-width:230px}
+@media(max-width:1050px){.market-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.market-filters .search-field{grid-column:1/-1}}
+@media(max-width:700px){.subcategory-navigation{padding:14px;margin-top:0}.subcategory-heading{align-items:flex-start}.subcategory-heading strong{font-size:11px;line-height:1.7}.subcategory-heading span{font-size:9px}.subcategory-chips{gap:7px}.subcategory-chips button{font-size:10px;padding:8px 10px}.deal-classification{font-size:10px}.admin-app .filter-selects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.admin-app .filter-selects label,.admin-app .filter-selects select{min-width:0;width:100%;max-width:none!important}}
+@media(max-width:550px){.market-filters{grid-template-columns:minmax(0,1fr)}.market-filters .search-field{grid-column:auto}.subcategory-heading{flex-direction:column;gap:4px}.offer-subcategory{font-size:10px}}
