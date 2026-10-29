@@ -1,0 +1,24 @@
+.pwa-install{background:#edf4ff;color:#123563;border-bottom:1px solid #d8e4f5;font:14px/1.4 system-ui,sans-serif}
+.pwa-install[hidden],.pwa-dialog [hidden]{display:none!important}
+.pwa-bar-inner{max-width:1280px;margin:auto;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pwa-bar-inner>span{display:flex;align-items:center;gap:10px;font-weight:600}
+.pwa-bar-inner img{border-radius:7px;flex:none}
+.pwa-install button,.pwa-dialog button{font:inherit;cursor:pointer;border:0;border-radius:10px;min-height:44px;padding:9px 16px;background:#123563;color:white;font-weight:700}
+.pwa-install button{font-size:13px;flex:none}
+.pwa-install button:focus-visible,.pwa-dialog button:focus-visible{outline:3px solid #6753ed;outline-offset:3px}
+.pwa-dialog{border:1px solid #d8e4f5;border-radius:22px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100dvh - 40px);color:#123563;background:white;font:15px/1.6 system-ui,sans-serif;box-shadow:0 24px 80px #102d5a33;overscroll-behavior:contain}
+.pwa-dialog::backdrop{background:#071d3cb3}
+.pwa-dialog-body{padding:28px}
+.pwa-dialog img{border:1px solid #e4ebf5;border-radius:16px}
+.pwa-dialog h2{font:750 25px/1.25 system-ui,sans-serif;margin:16px 0 8px;color:#123563;letter-spacing:-.5px}
+.pwa-dialog h3{font:700 16px/1.4 system-ui,sans-serif;margin:0 0 8px;color:#123563}
+.pwa-dialog p{margin:8px 0 16px;color:#4d617e}
+.pwa-dialog section{padding-top:18px;margin-top:18px;border-top:1px solid #e4ebf5}
+.pwa-dialog ol{margin:0;padding-left:22px;display:grid;gap:8px}
+.pwa-dialog .pwa-note{margin:24px 0 18px;padding:14px;border-radius:12px;background:#f3f6fb;font-size:13px}
+.pwa-dialog .pwa-close{width:100%;background:#eaf0fa;color:#123563}
+.pwa-dialog .pwa-status:empty{display:none}
+.pwa-dialog .pwa-native{width:100%;margin:8px 0}
+@media(max-width:540px){.pwa-bar-inner{padding:7px 12px;gap:8px}.pwa-bar-inner>span{font-size:12px;gap:7px}.pwa-install button{padding:8px 10px;font-size:12px}.pwa-dialog-body{padding:22px}}
+@media(display-mode:standalone){.pwa-install{display:none!important}}
+@media print{.pwa-install,.pwa-dialog{display:none!important}}

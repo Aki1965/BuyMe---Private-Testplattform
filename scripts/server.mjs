@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 
 export const PROJECT_ROOT=fileURLToPath(new URL('../',import.meta.url));
-const CONTENT_TYPES={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.txt':'text/plain; charset=utf-8'};
+const CONTENT_TYPES={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.webmanifest':'application/manifest+json; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.txt':'text/plain; charset=utf-8'};
 const within=(root,file)=>file===root||file.startsWith(root+path.sep);
 
 /** Static development server. Only browser application files are exposed. */
@@ -18,7 +18,7 @@ export async function createAppServer({directory=PROJECT_ROOT}={}){
     try{pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{send(400,'Invalid URL');return;}
     if(pathname.includes('\0')||pathname.includes('\\')){send(400,'Invalid path');return;}
     const relative=pathname==='/'?'index.html':pathname.replace(/^\/+/,''),parts=relative.split('/');
-    const entry=['index.html','admin.html'].includes(relative);
+    const entry=['index.html','admin.html','manifest.webmanifest','sw.js'].includes(relative);
     const asset=['css','js','assets'].includes(parts[0])&&parts.length>1&&parts.every(p=>p&&!p.startsWith('.'));
     if(!entry&&!asset){send(404,'Not found');return;}
     const extension=path.extname(relative).toLowerCase();

@@ -8,7 +8,7 @@ import {createAppServer,serverOptions,PROJECT_ROOT} from '../scripts/server.mjs'
 test('development server serves marketplace, admin, modules and assets with correct MIME types',async t=>{
   const server=await createAppServer();await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>server.close(resolve)));
   const base='http://127.0.0.1:'+server.address().port;
-  for(const [file,type,needle] of [['/','text/html','./js/platform.js'],['/admin.html?deal=BM-DEMO','text/html','./js/app.js'],['/js/auth.js','text/javascript','export'],['/css/legal.css','text/css','legal-page'],['/assets/buyme-logo-light.svg','image/svg+xml','<svg']]){
+  for(const [file,type,needle] of [['/','text/html','./js/platform.js'],['/admin.html?deal=BM-DEMO','text/html','./js/app.js'],['/js/auth.js','text/javascript','export'],['/css/legal.css','text/css','legal-page'],['/assets/buyme-logo-light.svg','image/svg+xml','<svg'],['/manifest.webmanifest','application/manifest+json','standalone'],['/sw.js','text/javascript','respondWith'],['/js/pwa.js','text/javascript','beforeinstallprompt']]){
     const r=await fetch(base+file);assert.equal(r.status,200);assert.ok(r.headers.get('content-type').startsWith(type));assert.ok((await r.text()).includes(needle));assert.equal(r.headers.get('cache-control'),'no-store');
   }
   const head=await fetch(base+'/index.html',{method:'HEAD'});assert.equal(head.status,200);assert.equal(await head.text(),'');assert.ok(Number(head.headers.get('content-length'))>0);

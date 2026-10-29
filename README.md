@@ -24,6 +24,10 @@ Nur wenn du den Server im Netzwerk erreichen möchtest, den Host entsprechend fr
 
 **Die App über HTTP/HTTPS starten.** Die separaten JavaScript-Module sind für einen Webserver ausgelegt; ein Doppelklick auf `index.html` ist nicht der vorgesehene Startweg.
 
+## Auf dem Smartphone installieren
+
+BuyMe unterstützt die Installation als PWA mit eigenem App-Symbol. In Safari **Teilen → Zum Home-Bildschirm → Hinzufügen**, in Chrome **App installieren** bzw. **⋮ → Zum Startbildschirm hinzufügen → Installieren** wählen. Die App benötigt weiterhin Internet. [Anleitung und technische Hinweise](docs/PWA.md).
+
 ## Testzugänge
 
 Alle vorbereiteten Konten verwenden anfangs **`BuyMeTest!2026`**. Eine lokale Passwortänderung ersetzt das Passwort nur im betreffenden Browser.
@@ -61,6 +65,8 @@ Weitere Informationen stehen direkt in der App unter **Testzugänge**. Neue fikt
 ```text
 index.html                 Marktplatz sowie Mitglieder-/Anbieteroberfläche
 admin.html                 Admin Cockpit
+manifest.webmanifest       App-Name, Startpfad und Installationssymbole
+sw.js                      Netzwerkzugriff und allgemeiner Offline-Hinweis
 css/                       Layout, Markenfarben und responsive Komponenten
 js/                        JavaScript-Module und Geschäftslogik
 js/vendor/                 Enthaltener Hash-Baustein mit Lizenzhinweisen
@@ -88,7 +94,7 @@ Die Dateien unter `js/` und `css/` sind die direkt verwendeten Quelldateien. Es 
 | `npm run translations:build` | `js/i18n-data.js` aus den Katalogen neu erzeugen |
 | `npm run translations:check` | Prüfen, ob Kataloge und erzeugte Datei übereinstimmen |
 
-Für eine statische Bereitstellung **den Inhalt von `dist/`** verwenden. `index.html`, `admin.html`, `css/`, `js/` und `assets/` müssen gemeinsam erhalten bleiben. Die Anwendung nutzt Hash-Routen; besondere SPA-Rewrite-Regeln sind dafür nicht nötig. Ein passender externer Zugangsschutz muss vom Hosting eingerichtet werden, wenn die Testplattform privat zugänglich sein soll.
+Für eine statische Bereitstellung **den Inhalt von `dist/`** verwenden. `index.html`, `admin.html`, `manifest.webmanifest`, `sw.js`, `css/`, `js/` und `assets/` müssen gemeinsam erhalten bleiben. Die Anwendung nutzt Hash-Routen; besondere SPA-Rewrite-Regeln sind dafür nicht nötig. Ein passender externer Zugangsschutz muss vom Hosting eingerichtet werden, wenn die Testplattform privat zugänglich sein soll.
 
 ## Einen Ablauf ausprobieren
 

@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('../',import.meta.url));
 async function files(directory){const result=[];for(const entry of await readdir(directory,{withFileTypes:true})){const name=path.join(directory,entry.name);if(entry.isDirectory())result.push(...await files(name));else result.push(name);}return result;}
 let count=0;
-for(const file of [...await files(path.join(root,'js')),...await files(path.join(root,'scripts')),...await files(path.join(root,'tests'))]){
+for(const file of [path.join(root,'sw.js'),...await files(path.join(root,'js')),...await files(path.join(root,'scripts')),...await files(path.join(root,'tests'))]){
   if(!/\.(mjs|js)$/.test(file))continue;
   const result=spawnSync(process.execPath,['--check',file],{encoding:'utf8'});
   if(result.status!==0)throw Error(result.stderr||'Syntaxprüfung fehlgeschlagen: '+file);
