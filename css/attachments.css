@@ -1,0 +1,21 @@
+.upload-picker,.attachment-panel{margin:20px 0;padding:20px;border:1px solid #d9e4f1;border-radius:16px;background:#f8faff;min-width:0}
+.upload-picker h3,.attachment-panel h3{margin:0 0 8px;font-size:17px;color:#123563}
+.upload-hint,.upload-local{font-size:12px;line-height:1.6;color:#566781;margin:8px 0 12px}
+.upload-local{margin:14px 0 0}.upload-drop{display:grid!important;gap:10px;border:1.5px dashed #a3b8d8;border-radius:12px;padding:18px;background:white;color:#123563;font-size:13px;cursor:pointer}
+.upload-drop>span{font-weight:750}.upload-drop input[type=file]{width:100%;min-height:44px;padding:5px;font-size:12px;background:#f1f5fc;border-radius:8px;border:0;color:#123563}
+.upload-drop input::file-selector-button{padding:10px 12px;margin-right:10px;border:0;border-radius:7px;background:#123563;color:white;cursor:pointer}.upload-drop small{font-weight:400;color:#566781}
+.upload-selected-row,.upload-existing-row{display:flex;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid #dce5f2;min-width:0;font-size:13px}
+.upload-existing-row[hidden]{display:none}.upload-selected-row>span,.upload-existing-row>span{flex:1;min-width:0;overflow-wrap:anywhere}.upload-selected-row small,.upload-existing-row small{display:block;color:#657590;font-size:11px;margin-top:3px}
+.upload-selected-row img{width:56px;height:56px;object-fit:contain;border:1px solid #dce5f2;border-radius:8px;background:white;flex:none}
+.upload-picker button,.attachment-panel button{font:inherit;cursor:pointer}.upload-picker button{border:0;background:transparent;color:#2546a7;font-size:12px;min-height:44px;flex:none}.upload-error:empty{display:none}.upload-error,.attachment-panel .form-error{color:#a81d36;font-size:13px;line-height:1.5}
+.attachment-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.attachment-heading>span{font-size:12px;color:#566781;white-space:nowrap}
+.attachment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px}
+.attachment-card{min-width:0;overflow:hidden;background:white;border:1px solid #dce5f2;border-radius:12px}
+.attachment-card>img,.attachment-file-icon{width:100%;height:130px;object-fit:contain;background:#eff4fc;display:block}.attachment-file-icon{display:grid;place-items:center;font-size:25px;font-weight:800;color:#55709a;letter-spacing:2px}
+.attachment-info{padding:12px}.attachment-info strong{display:block;font-size:12px;line-height:1.5;overflow-wrap:anywhere;color:#123563}.attachment-info small{display:block;margin-top:5px;color:#657590;font-size:11px}
+.attachment-info button{font-size:12px;border:0;border-radius:8px;background:#edf2fb;color:#163f8a;padding:9px 12px;min-height:44px;margin-top:10px;width:100%}
+.attachment-panel .upload-picker{background:white;margin-bottom:12px}.attachment-panel .upload-submit{min-height:44px;border:0;border-radius:10px;background:#123563;color:white;font-weight:700;padding:11px 17px}.attachment-panel button:disabled{opacity:.6;cursor:wait}
+.upload-picker button:focus-visible,.attachment-panel button:focus-visible{outline:3px solid #6e59e9;outline-offset:2px}.uploaded-offer-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#f4f7fc;z-index:1}.offer-art,.detail-art{position:relative}.uploaded-offer-image~.art-cashback{z-index:2}.detail-art:has(.uploaded-offer-image)>svg,.detail-art:has(.uploaded-offer-image)>.art-orbit,.detail-art:has(.uploaded-offer-image)>span{display:none}.upload-unavailable{object-fit:contain!important;color:#657590;font-size:12px;padding:16px}
+.moderation-offer .attachment-panel{margin:16px 0}.drawer .attachment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:600px){.upload-picker,.attachment-panel{padding:14px;border-radius:12px}.upload-selected-row{flex-wrap:wrap}.upload-selected-row>span{flex-basis:calc(100% - 70px)}.upload-selected-row button{margin-left:auto}.attachment-heading{align-items:flex-start}.attachment-heading h3{font-size:15px}.drawer .attachment-grid{grid-template-columns:1fr}.upload-drop{padding:12px}}
+@media print{.upload-picker,.upload-submit,.attachment-info button{display:none}}

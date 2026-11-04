@@ -123,3 +123,8 @@ Rechtstexte sind als **Entwürfe** markiert. Betreiberangaben und tatsächliche 
 - [Drittanbieter und Lizenzhinweise](THIRD_PARTY_NOTICES.md)
 
 Die Geschäftsregeln sind in separaten Modulen mit Node-Tests hinterlegt. Sie dienen als Referenz für die spätere serverseitige Umsetzung. Eine Veröffentlichung des Quellcodes aktiviert keine echten Zahlungs- oder Backenddienste.
+
+
+## Bilder und Dateien (04.11.2026)
+
+Anbieter können Bilder und Dateien an Angeboten hinterlegen, Mitglieder Unterlagen bei der Annahme oder später im Deal ergänzen. Die beteiligten drei Rollen sehen die zugeordneten Anhänge samt Bildvorschau und Download. Dateien werden in diesem Prototyp lokal in IndexedDB gespeichert; es besteht keine Übertragung zwischen verschiedenen Geräten. Anleitung und Grenzen: [docs/UPLOADS.md](docs/UPLOADS.md).
