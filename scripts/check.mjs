@@ -11,7 +11,7 @@ for(const file of [path.join(root,'sw.js'),...await files(path.join(root,'js')),
   if(result.status!==0)throw Error(result.stderr||'Syntaxprüfung fehlgeschlagen: '+file);
   count++;
 }
-for(const name of ['index.html','admin.html']){
+for(const name of ['index.html','admin.html','account.html']){
   const html=await readFile(path.join(root,name),'utf8');
   for(const match of html.matchAll(/(?:src|href)="(\.\/[^"#?]+)"/g)){
     const file=path.resolve(root,match[1]);if(!file.startsWith(root))throw Error('Ungültiger Assetpfad: '+match[1]);

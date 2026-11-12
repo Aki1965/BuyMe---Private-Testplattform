@@ -4,11 +4,12 @@ Vollständige responsive Web-App in **HTML, CSS und JavaScript**, übernommen au
 
 ## Sofort starten
 
-Voraussetzung: **Node.js ab Version 20**. Es gibt keine zu installierenden npm-Abhängigkeiten.
+Voraussetzung: **Node.js ab Version 22**. Die festgelegten Abhängigkeiten werden mit `npm ci` installiert.
 
 ```bash
 git clone https://github.com/Aki1965/BuyMe---Private-Testplattform.git
 cd BuyMe---Private-Testplattform
+npm ci
 npm run dev
 ```
 
@@ -78,18 +79,18 @@ docs/                      Architektur und Übergabe an Shopboostr
 package.json               Start-, Build- und Testbefehle
 ```
 
-Die Dateien unter `js/` und `css/` sind die direkt verwendeten Quelldateien. Es wird kein Framework und kein Bundler benötigt.
+Die Dateien unter `js/` und `css/` sind die Quelldateien. Der bisherige Marktplatz nutzt native JavaScript-Module. Der zusätzliche Supabase-Kontobereich wird mit esbuild für den Browser gebündelt; ein UI-Framework ist nicht erforderlich.
 
 ## Befehle
 
 | Befehl | Zweck |
 |---|---|
-| `npm run dev` | Lokalen Entwicklungsserver starten |
+| `npm run dev` | App bauen und lokalen Entwicklungsserver starten |
 | `npm start` | Derselbe Startbefehl |
 | `npm run check` | JavaScript-Syntax, Assetpfade, Modulimporte und Übersetzungskataloge prüfen |
 | `npm test` | Sämtliche automatischen Tests ausführen |
 | `npm run verify` | Quellprüfung und Tests nacheinander ausführen |
-| `npm run build` | Vollständige statische App nach `dist/` kopieren |
+| `npm run build` | Statische App nach `dist/` kopieren und Kontobereich bündeln |
 | `npm run preview` | Den zuvor erzeugten Ordner `dist/` lokal bereitstellen |
 | `npm run translations:build` | `js/i18n-data.js` aus den Katalogen neu erzeugen |
 | `npm run translations:check` | Prüfen, ob Kataloge und erzeugte Datei übereinstimmen |
@@ -128,3 +129,6 @@ Die Geschäftsregeln sind in separaten Modulen mit Node-Tests hinterlegt. Sie di
 ## Bilder und Dateien (04.11.2026)
 
 Anbieter können Bilder und Dateien an Angeboten hinterlegen, Mitglieder Unterlagen bei der Annahme oder später im Deal ergänzen. Die beteiligten drei Rollen sehen die zugeordneten Anhänge samt Bildvorschau und Download. Dateien werden in diesem Prototyp lokal in IndexedDB gespeichert; es besteht keine Übertragung zwischen verschiedenen Geräten. Anleitung und Grenzen: [docs/UPLOADS.md](docs/UPLOADS.md).
+# Vorbereitung: eigene Testkonten
+
+Der zusätzliche Kontobereich `account.html` ist für Supabase Auth vorbereitet und bleibt bis zur vollständigen Einrichtung geschlossen. Er übernimmt keine persönlichen Daten in die bisherige lokale Demo. Stand, Konfiguration, geprüfte Datenbankrechte und ausstehende Abnahme: [TEST_ACCOUNT_REGISTRATION.md](docs/TEST_ACCOUNT_REGISTRATION.md).

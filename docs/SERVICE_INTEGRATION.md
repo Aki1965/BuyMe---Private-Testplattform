@@ -1,6 +1,6 @@
 # BuyMe: Supabase, Cookiebot, Netlify und Brevo
 
-Stand: 04.11.2026. Dies ist die Vorbereitung der Anbindung, keine bereits aktivierte Mehrbenutzerplattform.
+Stand: 12.11.2026. Dies ist die Vorbereitung der Anbindung, keine bereits aktivierte Mehrbenutzerplattform. Die neue Kontoregistrierung und die tatsächlich eingerichtete Supabase-Profiltabelle sind in [TEST_ACCOUNT_REGISTRATION.md](TEST_ACCOUNT_REGISTRATION.md) dokumentiert.
 
 ## Tatsächlicher Stand
 
@@ -8,12 +8,12 @@ Die bestehende Anwendung auf main ist weiterhin ein browserlokaler Prototyp. Anm
 
 | Dienst | Vorbereitet | Für die tatsächliche Anbindung offen |
 | --- | --- | --- |
-| Supabase | Konfigurationsprüfung und Zielarchitektur | Verbindung zum richtigen vorhandenen Projekt, Schema-/Bestandsprüfung, Auth, RLS, Storage und Migration |
+| Supabase | Verbindung zu BuyMe Test bestätigt; private Profiltabelle und RLS-Zugriff geprüft; Kontobereich vorbereitet | Auth-/SMTP-Konfiguration, Freischaltung und anschließende Migration der Marktplatzdaten und Dateien |
 | Netlify | Build-/Publish-Konfiguration für die vorhandenen HTML-/JS-Dateien | Anmeldung, Zuordnung der richtigen Site und sichere Umgebungsvariablen |
 | Cookiebot | Domain-Group-ID im Konfigurationsvertrag | ID, tatsächlich genutzte Domains, Scan und Prüfung des Einwilligungsverhaltens |
 | Brevo | Trennung von geheimem API-Key und Absenderkonfiguration | Kontozugang, verifizierter Absender, SMTP/Auth- und Transaktionsintegration |
 
-Es wurden keine Anbieterprojekte verändert, keine Datenbankmigrationen angewendet und keine E-Mails verschickt. Die Netlify-Anmeldung in der separaten Browser-Sitzung wurde abgebrochen. Supabase ist noch nicht als Verbindung bestätigt.
+Im getrennten Supabase-Projekt BuyMe Test wurde eine Profiltabellen-Migration angewendet. Das bestehende Shopboostr-Projekt wurde nicht verändert. Die Netlify-Anmeldung ist noch nicht abgeschlossen; die Registrierung wurde noch nicht öffentlich freigeschaltet und es wurden keine Testmails verschickt.
 
 ## Vorhandene Projekte eindeutig zuordnen
 

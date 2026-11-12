@@ -18,7 +18,7 @@ export async function createAppServer({directory=PROJECT_ROOT}={}){
     try{pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{send(400,'Invalid URL');return;}
     if(pathname.includes('\0')||pathname.includes('\\')){send(400,'Invalid path');return;}
     const relative=pathname==='/'?'index.html':pathname.replace(/^\/+/,''),parts=relative.split('/');
-    const entry=['index.html','admin.html','manifest.webmanifest','sw.js'].includes(relative);
+    const entry=['index.html','admin.html','account.html','manifest.webmanifest','sw.js'].includes(relative);
     const asset=['css','js','assets'].includes(parts[0])&&parts.length>1&&parts.every(p=>p&&!p.startsWith('.'));
     if(!entry&&!asset){send(404,'Not found');return;}
     const extension=path.extname(relative).toLowerCase();
