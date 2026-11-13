@@ -10,3 +10,6 @@ Für den portablen Passwort-Hash-Testpfad ist ein bereits gebündelter Teil von 
 Die mitgelieferten ursprünglichen MIT-Lizenz- und Urheberhinweise sind unverändert erhalten. Der Baustein ist ausschließlich für den lokalen Prototyp enthalten; seine Verwendung ersetzt keine serverseitige Authentifizierung für reale Kundendaten.
 
 Für das übrige BuyMe-Projekt wird mit dieser Datei keine zusätzliche Open-Source-Lizenz eingeräumt. Für eine weitergehende Nutzung sind die Rechte der jeweils Berechtigten zu beachten.
+# Supabase-Kontobereich
+
+Die Abhängigkeit `@supabase/supabase-js` und ihre Komponenten werden mit `package-lock.json` festgelegt und für `account.html` gebündelt. Der Build kopiert die LICENSE- und CopyrightNotice-Dateien aller Produktionsabhängigkeiten nach `dist/assets/licenses/`; `index.txt` ordnet die Dateien den jeweiligen Paketen und Versionen zu. Supabase JS ist unter MIT lizenziert; die einzelnen mitgelieferten Abhängigkeitslizenzen gelten zusätzlich. esbuild und die Supabase CLI sind Entwicklungswerkzeuge; ihre Versionen sind ebenfalls fest gepinnt.
