@@ -8,6 +8,7 @@ export function publicAccountConfig(env = process.env) {
     publishableKey: normal(env.SUPABASE_PUBLISHABLE_KEY),
     appOrigin: normal(env.BUYME_APP_ORIGIN) || 'https://buyme.com.tr',
     operatorName: 'Ejdat Akyol',
+    operatorContext: 'BuyMe-Testversion in der Gründungsphase',
     operatorAddress: normal(env.BUYME_OPERATOR_ADDRESS),
     senderEmail: 'info@buyme.com.tr',
     termsVersion: '2026-11-12.test-accounts-v1',
@@ -24,6 +25,9 @@ export function publicAccountConfig(env = process.env) {
     return url.origin;
   };
   config.supabaseUrl = requireHttpsOrigin(config.supabaseUrl, 'SUPABASE_URL');
+  if (config.supabaseUrl !== 'https://xxbqrrkkndpjsupvhdmc.supabase.co') {
+    throw Error('Für diese Testregistrierung muss das getrennte Supabase-Projekt BuyMe Test verwendet werden.');
+  }
   config.appOrigin = requireHttpsOrigin(config.appOrigin, 'BUYME_APP_ORIGIN');
   if (!/^sb_publishable_[A-Za-z0-9_-]+$/.test(config.publishableKey)) {
     throw Error('Ein öffentlicher Supabase Publishable Key ist erforderlich.');

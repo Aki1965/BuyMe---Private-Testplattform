@@ -6,6 +6,7 @@ export const accountConfig = Object.freeze({
   publishableKey: '',
   appOrigin: 'https://buyme.com.tr',
   operatorName: 'Ejdat Akyol',
+  operatorContext: 'BuyMe-Testversion in der Gründungsphase',
   operatorAddress: '',
   senderEmail: 'info@buyme.com.tr',
   termsVersion: '2026-11-12.test-accounts-v1',

@@ -65,7 +65,7 @@ test('build stays closed and never serializes mail secrets',()=>{
  assert.equal(result.enabled,false);assert.equal(result.publishableKey,'');assert.equal(JSON.stringify(result).includes('secret'),false);
 });
 test('public release requires an address, verified setup and a publishable key',()=>{
- const valid={BUYME_ACCOUNT_SIGNUP_ENABLED:'true',BUYME_ACCOUNT_SETUP_VERIFIED:'true',BUYME_OPERATOR_ADDRESS:'Testanschrift 12, 12345 Beispielort',SUPABASE_URL:'https://project.supabase.co',SUPABASE_PUBLISHABLE_KEY:'sb_publishable_example',BUYME_APP_ORIGIN:'https://buyme.com.tr'};
+ const valid={BUYME_ACCOUNT_SIGNUP_ENABLED:'true',BUYME_ACCOUNT_SETUP_VERIFIED:'true',BUYME_OPERATOR_ADDRESS:'Testanschrift 12, 12345 Beispielort',SUPABASE_URL:'https://xxbqrrkkndpjsupvhdmc.supabase.co',SUPABASE_PUBLISHABLE_KEY:'sb_publishable_example',BUYME_APP_ORIGIN:'https://buyme.com.tr'};
  assert.equal(publicAccountConfig(valid).enabled,true);
- for(const override of [{BUYME_OPERATOR_ADDRESS:''},{BUYME_ACCOUNT_SETUP_VERIFIED:'false'},{SUPABASE_PUBLISHABLE_KEY:'sb_secret_forbidden'},{SUPABASE_PUBLISHABLE_KEY:'eyJhbGciOiJlegacy'},{BUYME_APP_ORIGIN:'https://user:password@example.com'},{BUYME_APP_ORIGIN:'https://example.com/path'},{SUPABASE_URL:'http://example.com'}])assert.throws(()=>publicAccountConfig({...valid,...override}));
+ for(const override of [{BUYME_OPERATOR_ADDRESS:''},{BUYME_ACCOUNT_SETUP_VERIFIED:'false'},{SUPABASE_PUBLISHABLE_KEY:'sb_secret_forbidden'},{SUPABASE_PUBLISHABLE_KEY:'eyJhbGciOiJlegacy'},{BUYME_APP_ORIGIN:'https://user:password@example.com'},{BUYME_APP_ORIGIN:'https://example.com/path'},{SUPABASE_URL:'http://example.com'},{SUPABASE_URL:'https://ktxrmilxmxeiomjangil.supabase.co'}])assert.throws(()=>publicAccountConfig({...valid,...override}));
 });

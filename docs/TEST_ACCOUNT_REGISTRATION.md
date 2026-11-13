@@ -1,14 +1,15 @@
 # BuyMe: offene Registrierung mit eigenen Kontodaten
 
-Stand: 12.11.2026. Technische Vorbereitung; **noch nicht öffentlich freigeschaltet**.
+Stand: 13.11.2026. Technische Vorbereitung; **Veröffentlichung auf Netlify noch ausstehend**.
 
 ## Bestätigte Zuordnung
 
-- Betreiber der Testversion: Ejdat Akyol. Die vollständige Betreiberanschrift fehlt noch.
+- Betreiber der Testversion: Ejdat Akyol, BuyMe in der Gründungsphase. Der Nutzer hat bestätigt, dass die UG noch in Gründung ist. Im Test werden keine bereits eingetragene UG, keine erfundene HRB-Nummer und keine ungeprüfte Geschäftsführereigenschaft behauptet.
+- Die vollständige Anschrift wurde für den Testbetrieb bereitgestellt. Sie wird ausschließlich als `BUYME_OPERATOR_ADDRESS` für die Testveröffentlichung hinterlegt und nicht zusätzlich im öffentlichen Quellcode gespeichert.
 - Gewünschter Zugang: Jeder darf ein kostenloses Testkonto registrieren; keine Einladung erforderlich.
 - Vorgesehene App-Adresse: https://buyme.com.tr
 - Netlify-Projekt: `luxury-lebkuchen-4e9d94`; der Projektzugriff über `info@buy-me.net` ist noch nicht bestätigt.
-- Vom Betreiber als in Brevo verifiziert bestätigter Absender: `info@buyme.com.tr`. Die tatsächliche SMTP-Anbindung an Supabase wurde noch nicht geprüft.
+- Vom Betreiber als in Brevo verifiziert bestätigter Absender: `info@buyme.com.tr`. Am 13.11.2026 hat der Betreiber die vollständige Einrichtung und Prüfung von Brevo-SMTP und Supabase-E-Mail-Bestätigung gemeldet. Eine eigene Endabnahme der veröffentlichten App ist noch offen.
 - Supabase: ausschließlich `BuyMe Test`, Projekt `xxbqrrkkndpjsupvhdmc`, EU-Region Irland. Das separate Shopboostr-Projekt wurde nicht verändert.
 
 ## Implementierter Umfang
@@ -17,7 +18,7 @@ Stand: 12.11.2026. Technische Vorbereitung; **noch nicht öffentlich freigeschal
 
 Die Tabelle `public.buyme_test_profiles` wurde mit Migration `20261112141827_buyme_test_profiles.sql` in BuyMe Test angelegt. RLS beschränkt den Browserzugriff auf das eigene Profil. Nicht angemeldete Besucher haben keinen Tabellenzugriff. Kontoinhaber dürfen Name und Firmenname ändern, jedoch nicht Eigentümer-ID, Rolle, Bedingungenversion oder Zeitstempel. E-Mail und Passwort werden von Supabase Auth verwaltet. Für Auskunft und Kontolöschung ist im ersten Test der Betreiber über die angegebene Kontaktadresse zuständig.
 
-Die bisherige Plattform bleibt eine Demo mit lokal gespeicherten, fiktiven Vorgängen und öffentlichen Demo-Zugängen. Neue Supabase-Konten werden **nicht** in diesen lokalen Datenbestand importiert. Diese Vorbereitung migriert keine Angebote, Deals, Nachrichten, Dateien oder Wallets. Die bestehenden Registrierungs-/Anmeldebuttons sind noch nicht auf den neuen Kontobereich umgeschaltet. Ein gemeinsamer Marktplatz mit echten Konten benötigt anschließend den passenden Backend-Anschluss und Rollen-/Dateizugriffstests.
+Die bisherige Plattform bleibt eine Demo mit lokal gespeicherten, fiktiven Vorgängen und öffentlichen Demo-Zugängen. Neue Supabase-Konten werden **nicht** in diesen lokalen Datenbestand importiert. Diese Vorbereitung migriert keine Angebote, Deals, Nachrichten, Dateien oder Wallets. Sobald die Registrierungskonfiguration aktiviert wird, führen die vorhandenen Registrierungs-, Login- und Profilrouten über `account-entry.js` in den Supabase-Kontobereich. Der ausdrücklich über `?demo=1` geöffnete lokale Demo-Test bleibt getrennt. Ein gemeinsamer Marktplatz mit echten Konten benötigt anschließend den passenden Backend-Anschluss und Rollen-/Dateizugriffstests.
 
 ## Freischaltung nach Konfiguration und Abnahme
 
@@ -33,6 +34,8 @@ Die folgenden Einstellungen werden in der bestätigten Netlify-Site hinterlegt. 
 | `BUYME_ACCOUNT_SETUP_VERIFIED` | Zunächst `false`; erst nach vollständiger Prüfung unten `true` |
 
 Ohne diese Freigaben zeigt die Seite einen Vorbereitungszustand und initialisiert keinen Supabase-Client. Der Build lehnt eine aktive Konfiguration ohne Betreiberanschrift, Bestätigung der Einrichtung, HTTPS-Adressen oder Publishable Key ab. Es werden ausschließlich die aufgeführten öffentlichen Einstellungen in den Browser geschrieben; SMTP-Passwort und Brevo-API-Key werden nicht in den Build übernommen.
+
+Zusätzlich muss die Supabase-Adresse exakt dem getrennten Projekt BuyMe Test entsprechen. Bestehende Netlify-Variablen eines anderen Supabase-Projekts dürfen nicht versehentlich zur Registrierung im Shopboostr-System führen.
 
 In Supabase Auth müssen vor der Abnahme die Registrierung per E-Mail aktiviert, E-Mail-Bestätigung eingeschaltet und anonyme Anmeldungen ausgeschaltet sein. Die Site URL und die erlaubte Rücksprungadresse müssen zur kanonischen Domain passen; vorgesehen ist `https://buyme.com.tr/account.html`. PKCE-Links möglichst im Browser der Registrierung öffnen; nach Bestätigung ist auch eine normale Anmeldung mit dem Passwort möglich.
 
