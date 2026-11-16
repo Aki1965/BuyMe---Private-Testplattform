@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 /* Operational text has enough contrast for prolonged use. */
 p{color:#6e85a6}.muted{color:#7c90ae}.fineprint{color:#8197b6}.offer-card-body>p{color:#7e95b6}.offer-title{color:#3e608f}.provider-line{color:#718bb1}.offer-card-bottom{font-size:10px}.stat-label{color:#718bae}.stat small{color:#8ca1bf}.summary-facts dt{color:#849bbd}.summary-facts dd{color:#5779a8}.next-step{color:#7d97bc}.chat-bubble p{color:#6987b1}.chat-bubble strong{color:#5478a7}.chat-bubble time{color:#8ca3c3}.timeline p{color:#819abc}.timeline small{color:#8ca4c6}.modal-note{color:#7b97bd}.guide-steps p{color:#8aa2c2}.badge.review,.badge.pending{color:#94732e}.badge.confirmed,.badge.released,.badge.active{color:#4978bf}.badge.completed,.badge.paid{color:#478468}.badge.failed,.badge.rejected{color:#b3675e}
+
+.market-return{display:flex;justify-content:flex-start;margin:22px 0 8px}.market-return .btn{min-height:42px}@media(max-width:600px){.market-return{margin-top:16px}.market-return .btn{width:100%}}

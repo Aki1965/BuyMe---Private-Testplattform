@@ -132,3 +132,9 @@ Anbieter können Bilder und Dateien an Angeboten hinterlegen, Mitglieder Unterla
 # Vorbereitung: eigene Testkonten
 
 Der zusätzliche Kontobereich `account.html` ist für Supabase Auth vorbereitet und bleibt bis zur vollständigen Einrichtung geschlossen. Er übernimmt keine persönlichen Daten in die bisherige lokale Demo. Stand, Konfiguration, geprüfte Datenbankrechte und ausstehende Abnahme: [TEST_ACCOUNT_REGISTRATION.md](docs/TEST_ACCOUNT_REGISTRATION.md).
+
+## Konten löschen und Startseite (16.11.2026)
+
+Im Adminbereich unter **Konten** steht bei Mitgliedern und Anbietern neben Sperren/Aktivieren die Aktion **Löschen** bereit, zusätzlich auch im Kontoprofil. Der Dialog zeigt die betroffenen Deals, Angebote, Bestellungen und Dateien; zum Bestätigen ist die genaue Kontonummer erforderlich. Diese Funktion entfernt ausschließlich lokale Demokonten einschließlich Anmeldung und verknüpfter Testdaten. Supabase-Konten werden dadurch nicht gelöscht. Bei gemischten Bestellungen und Auszahlungen bleiben die Positionen anderer Anbieter erhalten. Noch gemeinsam verwendete Dateien bleiben erhalten; unterbrochene Dateibereinigung wird beim nächsten Öffnen der Administration erneut versucht.
+
+Nach einer Marktplatzsuche führt **Zur Startseite** zurück zur vollständigen Hauptseite und leert Suche, Region, Kategorie, Unterkategorie und Sortierung. Auch das BuyMe-Logo und der Marktplatz-Eintrag in der Hauptnavigation setzen die Suche zurück.

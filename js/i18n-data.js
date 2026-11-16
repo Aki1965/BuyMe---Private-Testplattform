@@ -8847,5 +8847,124 @@ export const DICTIONARY={
   "Bilden är endast tillgänglig på den ursprungliga testenheten",
   "Immagine disponibile solo sul dispositivo di prova originale",
   "Resim yalnızca ilk test cihazında kullanılabilir"
+ ],
+ "Löschen": [
+  "Delete",
+  "Supprimer",
+  "Radera",
+  "Elimina",
+  "Sil"
+ ],
+ "Konto löschen": [
+  "Delete account",
+  "Supprimer le compte",
+  "Radera konto",
+  "Elimina account",
+  "Hesabı sil"
+ ],
+ "Konto löschen?": [
+  "Delete account?",
+  "Supprimer le compte ?",
+  "Radera konto?",
+  "Eliminare l’account?",
+  "Hesap silinsin mi?"
+ ],
+ "Konto endgültig löschen": [
+  "Permanently delete account",
+  "Supprimer définitivement le compte",
+  "Radera kontot permanent",
+  "Elimina definitivamente l’account",
+  "Hesabı kalıcı olarak sil"
+ ],
+ "Kontonummer zur Bestätigung": [
+  "Account ID for confirmation",
+  "Identifiant du compte pour confirmation",
+  "Kontonummer för bekräftelse",
+  "ID account per conferma",
+  "Onay için hesap numarası"
+ ],
+ "Betroffene Bestellungen": [
+  "Affected orders",
+  "Commandes concernées",
+  "Berörda beställningar",
+  "Ordini interessati",
+  "Etkilenen siparişler"
+ ],
+ "Zur Startseite": [
+  "Back to home",
+  "Retour à l’accueil",
+  "Till startsidan",
+  "Torna alla pagina iniziale",
+  "Ana sayfaya dön"
+ ],
+ "Das Konto und seine Anmeldung werden aus dieser Demo entfernt. Zugehörige Testvorgänge und Unterlagen werden ebenfalls gelöscht, auch in den Ansichten der anderen Beteiligten.": [
+  "The account and its login will be removed from this demo. Related test transactions and documents will also be deleted, including from other participants’ views.",
+  "Le compte et son accès seront supprimés de cette démo. Les opérations de test et documents associés seront également supprimés, y compris dans les vues des autres participants.",
+  "Kontot och dess inloggning tas bort från denna demo. Tillhörande testärenden och dokument raderas också, även i andra deltagares vyer.",
+  "L’account e il suo accesso saranno rimossi da questa demo. Saranno eliminati anche le operazioni di prova e i documenti associati, anche dalle viste degli altri partecipanti.",
+  "Hesap ve giriş bilgileri bu demodan kaldırılacak. İlgili test işlemleri ve belgeler, diğer katılımcıların görünümleri dahil olmak üzere silinecek."
+ ],
+ "Nach dem Löschen ist dieses Konto nicht mehr verfügbar. Es wird keine Löschung bei Supabase ausgelöst.": [
+  "After deletion, this account will no longer be available. No deletion is performed in Supabase.",
+  "Après la suppression, ce compte ne sera plus disponible. Aucune suppression ne sera effectuée dans Supabase.",
+  "Efter raderingen är kontot inte längre tillgängligt. Ingen radering görs i Supabase.",
+  "Dopo l’eliminazione, l’account non sarà più disponibile. Non verrà eseguita alcuna eliminazione in Supabase.",
+  "Silindikten sonra bu hesap artık kullanılamaz. Supabase üzerinde silme işlemi yapılmaz."
+ ],
+ "Nur angemeldete Administratoren können Konten löschen.": [
+  "Only signed-in administrators can delete accounts.",
+  "Seuls les administrateurs connectés peuvent supprimer des comptes.",
+  "Endast inloggade administratörer kan radera konton.",
+  "Solo gli amministratori autenticati possono eliminare gli account.",
+  "Yalnızca giriş yapmış yöneticiler hesap silebilir."
+ ],
+ "Bitte die Kontonummer zur Bestätigung genau eingeben.": [
+  "Enter the exact account ID to confirm.",
+  "Saisissez l’identifiant exact du compte pour confirmer.",
+  "Ange det exakta kontonumret för att bekräfta.",
+  "Inserisci l’ID account esatto per confermare.",
+  "Onaylamak için hesap numarasını tam olarak girin."
+ ],
+ "Die Kontodaten oder Testvorgänge haben sich geändert. Bitte den Löschdialog erneut öffnen.": [
+  "The account details or test transactions have changed. Open the deletion dialog again.",
+  "Les données du compte ou les opérations de test ont changé. Ouvrez à nouveau la fenêtre de suppression.",
+  "Kontouppgifterna eller testärendena har ändrats. Öppna raderingsdialogen igen.",
+  "I dati dell’account o le operazioni di prova sono cambiati. Riapri la finestra di eliminazione.",
+  "Hesap bilgileri veya test işlemleri değişti. Silme penceresini yeniden açın."
+ ],
+ "Demokonto gelöscht": [
+  "Demo account deleted",
+  "Compte de démonstration supprimé",
+  "Demokonto raderat",
+  "Account demo eliminato",
+  "Demo hesabı silindi"
+ ],
+ "Demokonto und zugehörige Testdaten gelöscht.": [
+  "Demo account and related test data deleted.",
+  "Compte de démonstration et données de test associées supprimés.",
+  "Demokontot och tillhörande testdata har raderats.",
+  "Account demo e relativi dati di prova eliminati.",
+  "Demo hesabı ve ilgili test verileri silindi."
+ ],
+ "Konto gelöscht. Die Dateibereinigung wird beim nächsten Öffnen der Administration erneut versucht.": [
+  "Account deleted. File cleanup will be retried the next time administration is opened.",
+  "Compte supprimé. Le nettoyage des fichiers sera réessayé à la prochaine ouverture de l’administration.",
+  "Kontot har raderats. Filrensningen görs på nytt nästa gång administrationen öppnas.",
+  "Account eliminato. La pulizia dei file verrà ritentata alla prossima apertura dell’amministrazione.",
+  "Hesap silindi. Yönetim bölümü yeniden açıldığında dosya temizliği tekrar denenecek."
+ ],
+ "Die Dateibereinigung konnte noch nicht abgeschlossen werden. Bitte die Administration später erneut öffnen.": [
+  "File cleanup could not be completed yet. Open administration again later.",
+  "Le nettoyage des fichiers n’a pas encore pu être terminé. Rouvrez l’administration plus tard.",
+  "Filrensningen kunde inte slutföras ännu. Öppna administrationen igen senare.",
+  "Non è stato ancora possibile completare la pulizia dei file. Riapri l’amministrazione più tardi.",
+  "Dosya temizliği henüz tamamlanamadı. Yönetim bölümünü daha sonra yeniden açın."
+ ],
+ "Aktuell sind keine Angebote verfügbar.": [
+  "No offers are currently available.",
+  "Aucune offre n’est actuellement disponible.",
+  "Det finns inga erbjudanden just nu.",
+  "Al momento non sono disponibili offerte.",
+  "Şu anda kullanılabilir teklif yok."
  ]
 };
