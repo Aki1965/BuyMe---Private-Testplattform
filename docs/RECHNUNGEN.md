@@ -4,7 +4,7 @@
 
 - **Anbieter → Budget & Abrechnung**: Bei einem abgeschlossenen, gedeckten Deal mit positiver Gebühr „Servicegebühr im Test bezahlen“ wählen. Die Buchung speichert eine gesonderte Musterrechnung mit Dealbezug. Sie belastet das Demo-Budget nicht erneut.
 - **Mitglied → Bestellungen**: Nach der erfolgreichen Testzahlung gibt es je Verkäufer eine Musterrechnung. Eine fehlgeschlagene Zahlung erzeugt keinen Beleg. Für im Test erstattete Positionen erscheint ein eigener negativer Korrekturbeleg mit Bezug zur ursprünglichen Rechnung.
-- PDF-Download und Druckansicht verwenden denselben Beleg. In der Druckansicht druckt man über den PDF-Viewer. Alle Demo-PDFs tragen den sichtbaren Hinweis „Muster – keine Steuerrechnung“. Sie weisen keine Umsatzsteuer aus. Die Daten bleiben im Browser. Für den Test ausschließlich fiktive Daten verwenden.
+- PDF-Download und Druckansicht verwenden dieselben Belegdaten. In der Druckansicht öffnet „Drucken“ den Druckdialog des Browsers. Alle Demo-Belege tragen den sichtbaren Hinweis „Muster – keine Steuerrechnung“. Sie weisen keine Umsatzsteuer aus. Die Daten bleiben im Browser. Für den Test ausschließlich fiktive Daten verwenden.
 
 ## Rollen in der Buchhaltung
 

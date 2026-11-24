@@ -1,7 +1,7 @@
 import {uploadPicker,attachmentPanel,dealAttachmentsPanel,offerImage,installAttachmentInteractions} from './attachments-ui.js';
 import {legalPage,isLegalRoute,legalFooter,installLegalInteractions,publicRatingPanel} from './legal-ui.js';
 import {participantDataExport} from './legal-model.js';
-import {providerInvoicePanel} from './invoice-demo-ui.js';
+import {printDemoInvoice,providerInvoicePanel} from './invoice-demo-ui.js';
 import {demoInvoices,simulateFeePayment} from './invoice-model.js';
 import {invoiceFilename,showInvoiceFile} from './invoice-files.js';
 import {cartCount,mergeGuestCart} from './commerce.js';
@@ -130,13 +130,17 @@ function clickHandler(e){const b=e.target.closest('button,a');if(!b||b.disabled)
   const latest=loadState(),actor=Auth.currentAuth(latest);
   const invoice=demoInvoices(latest,actor).find(document=>document.id===id);
   if(!invoice){toast('Rechnung nicht verfügbar.');return;}
+  if(a==='invoice-print'){
+   try{printDemoInvoice(invoice);}catch(error){toast(error.message);}
+   return;
+  }
   const load=async()=>{
    const {demoInvoicePdf}=await import('./invoice-pdf.js');
    const pdf=await demoInvoicePdf(invoice),current=Auth.currentAuth(loadState());
    if(current?.id!==actor.id||current.role!==actor.role)throw Error('Bitte erneut anmelden.');
    return pdf;
   };
-  void showInvoiceFile(load,invoiceFilename(invoice.id,'pdf'),a==='invoice-print').catch(error=>toast(error.message));
+  void showInvoiceFile(load,invoiceFilename(invoice.id,'pdf'),false).catch(error=>toast(error.message));
   return;
  }
  if(a==='receipt'){const d=myDeals().find(x=>x.id===id&&x.payment==='paid');if(d)download('BuyMe_Demobeleg_'+d.id+'.txt',`BUYME · DEMO-AUSZAHLUNGSBELEG\n\nDeal: ${d.id}\nMitglied: ${d.user}\nAnbieter: ${d.provider}\nAngebot: ${d.offer}\nPrämie: ${money(d.cashback)}\nStatus: ${PL[d.payment]}\nZahlungsreferenz: ${d.paymentRef}\n\nFiktiver Testbeleg. Keine echte Zahlung, keine Rechnung.`);}
