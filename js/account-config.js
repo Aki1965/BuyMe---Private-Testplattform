@@ -2,6 +2,7 @@
 // Remains closed until SMTP, redirects, operator address and acceptance checks are complete.
 export const accountConfig = Object.freeze({
   enabled: false,
+  invoiceDocumentsEnabled: false,
   supabaseUrl: '',
   publishableKey: '',
   appOrigin: 'https://buyme.com.tr',

@@ -55,6 +55,7 @@ Weitere Informationen stehen direkt in der App unter **Testzugänge**. Neue fikt
 - Dealannahme, unveränderliche Angebotskopie, Nachweisreferenzen, Annahmeprüfung, Rückfragen, begründete Ablehnung und Anbieterfreigabe.
 - Getrennte Cashbackprüfung, administrative Freigabe, Walletstatus und simulierte Auszahlung einschließlich Fehler und erneutem Versuch.
 - Kaufbeispiele für Tablet, E-Bike, Pauschalreise, Schuhe und Restaurantmenü; Varianten, Mengen, Warenkorb, Testzahlung und Bestellungen.
+- Muster-PDFs zum Download und Drucken für BuyMe-Servicegebühren und bezahlte Testkäufe. Geschützter Originalbeleg-Abruf und Buchhaltungsanbindung sind in [RECHNUNGEN.md](docs/RECHNUNGEN.md) beschrieben.
 - Nachrichten und Support je Deal, Antworten und interne Adminnotizen.
 - Gegenseitige Bewertungen nach Abschluss; öffentliche Anbieterwerte zusammengefasst und Einzelbewertungen für die Beteiligten/Admin.
 - Adminübersichten für Konten, Angebote, Deals, Bestellungen, Zahlungen, Bewertungen und Streitfälle.

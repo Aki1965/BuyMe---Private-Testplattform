@@ -1,6 +1,7 @@
 import {createClient} from '@supabase/supabase-js';
 import {accountConfig as config} from './account-config.js';
 import {createAccountService} from './account-service.js';
+import {accountInvoicePanel,loadAccountInvoices} from './invoice-account-ui.js';
 
 const root = document.querySelector('#account-main');
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -47,7 +48,9 @@ function render() {
       layout(`<h2>Testprofil vervollständigen</h2><p>Deine E-Mail-Adresse ${esc(current.user.email)} ist bestätigt. Für dein Testprofil fehlen noch diese Angaben:</p><form data-account="complete"><label>Kontotyp<select name="role"><option value="member">Mitglied</option><option value="provider">Anbieterinteressent</option></select></label><label>Name<input name="name" minlength="2" maxlength="100" autocomplete="name" required></label><label data-company hidden>Firmenname<input name="company" maxlength="160" autocomplete="organization"></label><label class="check"><input name="terms" type="checkbox" required><span>Ich bin mindestens 18 Jahre alt und akzeptiere die <a href="#terms" target="_blank" rel="noopener">Testnutzungsbedingungen</a>. <a href="#privacy" target="_blank" rel="noopener">Datenschutzhinweise</a></span></label>${errorBox}<button class="btn full">Testprofil anlegen</button></form><p><button class="btn secondary" data-signout>Abmelden</button></p>`);
       return;
     }
-    layout(`<h2>Hallo ${esc(p.display_name)}</h2><p>Deine E-Mail-Adresse ist bestätigt.</p><dl class="facts"><div><dt>E-Mail</dt><dd>${esc(current.user.email)}</dd></div><div><dt>Kontotyp</dt><dd>${p.requested_role === 'provider' ? 'Anbieterinteressent · Prüfung ausstehend' : 'Mitglied im Test'}</dd></div></dl><form data-account="profile"><label>Name<input name="name" minlength="2" maxlength="100" autocomplete="name" required value="${esc(p.display_name)}"></label>${p.requested_role === 'provider' ? `<label>Firmenname<input name="company" maxlength="160" autocomplete="organization" value="${esc(p.company_name)}"></label>` : ''}${errorBox}<button class="btn full">Profil speichern</button></form><div class="links"><a href="#forgot">Passwort zurücksetzen</a><button class="btn secondary" data-signout>Abmelden</button></div><p class="small">Kontolöschung oder Auskunft: <a href="mailto:${config.senderEmail}">${config.senderEmail}</a></p>`);
+    layout(`<h2>Hallo ${esc(p.display_name)}</h2><p>Deine E-Mail-Adresse ist bestätigt.</p><dl class="facts"><div><dt>E-Mail</dt><dd>${esc(current.user.email)}</dd></div><div><dt>Kontotyp</dt><dd>${p.requested_role === 'provider' ? 'Anbieterinteressent · Prüfung ausstehend' : 'Mitglied im Test'}</dd></div></dl><form data-account="profile"><label>Name<input name="name" minlength="2" maxlength="100" autocomplete="name" required value="${esc(p.display_name)}"></label>${p.requested_role === 'provider' ? `<label>Firmenname<input name="company" maxlength="160" autocomplete="organization" value="${esc(p.company_name)}"></label>` : ''}${errorBox}<button class="btn full">Profil speichern</button></form><div class="links"><a href="#forgot">Passwort zurücksetzen</a><button class="btn secondary" data-signout>Abmelden</button></div><p class="small">Kontolöschung oder Auskunft: <a href="mailto:${config.senderEmail}">${config.senderEmail}</a></p>${config.invoiceDocumentsEnabled ? accountInvoicePanel : ''}`);
+    const invoicePanel = root.querySelector('[data-account-invoices]');
+    if (invoicePanel) void loadAccountInvoices(client, invoicePanel);
     return;
   }
   if (page === 'forgot') {
