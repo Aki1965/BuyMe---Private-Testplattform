@@ -1,0 +1,8 @@
+.invoice-panel {margin-block: 1.25rem; padding: 1rem; border: 1px solid #dce5f2; border-radius: 1rem;}
+.invoice-panel h2, .invoice-panel h3 {margin-block: 0 0.5rem;}
+.invoice-list {padding: 0; margin: 0; list-style: none;}
+.invoice-list li {padding: 0.875rem 0; border-bottom: 1px solid #dce5f2; overflow-wrap: anywhere;}
+.invoice-list li:last-child {border-bottom: 0;}
+.invoice-list small {display: block; margin-block: 0.25rem 0.5rem;}
+.invoice-actions {display: flex; flex-wrap: wrap; gap: 0.5rem;}
+.invoice-actions button {max-width: 100%; white-space: normal;}

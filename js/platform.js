@@ -1,6 +1,9 @@
 import {uploadPicker,attachmentPanel,dealAttachmentsPanel,offerImage,installAttachmentInteractions} from './attachments-ui.js';
 import {legalPage,isLegalRoute,legalFooter,installLegalInteractions,publicRatingPanel} from './legal-ui.js';
 import {participantDataExport} from './legal-model.js';
+import {printDemoInvoice,providerInvoicePanel} from './invoice-demo-ui.js';
+import {demoInvoices,simulateFeePayment} from './invoice-model.js';
+import {invoiceFilename,showInvoiceFile} from './invoice-files.js';
 import {cartCount,mergeGuestCart} from './commerce.js';
 import {productArt,purchaseOfferDetail,cartPage,checkoutPage,ordersPage,purchasePanel} from './commerce-ui.js';
 import {installCommerceInteractions} from './commerce-controller.js';
@@ -51,7 +54,7 @@ function render(){syncAuth();
  renderModal();if(focus&&document.getElementById(focus)){const el=document.getElementById(focus);el.focus();if(typeof pos==='number'&&el.setSelectionRange)try{el.setSelectionRange(pos,pos);}catch{}}
 }
 
-function renderPage(){if(isLegalRoute(route))return legalPage(route,state,auth);if(['login','register','register-provider'].includes(route)){if(auth)return `<div class="panel auth-panel already-signed"><h1>Du bist angemeldet</h1><p>${esc(me()?.name||'Administration')}</p><a class="btn primary" href="${role==='admin'?'./admin.html':role==='provider'?'#dashboard':'#deals'}">Zu deinem Bereich</a><button class="btn secondary" data-action="logout">Abmelden</button></div>`;return authPage(route,loginEmail);}if(route==='test-access')return testAccessPage(state);if(route==='how')return howPage();if(route==='security')return securityPage();if(route==='cart')return cartPage(state,cartOwner(),{member:role==='member'});if(route==='checkout'){checkoutToken();return checkoutPage(state,auth.id,{draft:checkoutDraft,failure:checkoutFailed});}if(route==='orders'||route.startsWith('order:'))return ordersPage(state,role,auth.id,route.startsWith('order:')?route.slice(6):null);if(route==='market')return marketplace();if(route.startsWith('offer:'))return offerDetail(route.slice(6));if(route.startsWith('provider:'))return providerProfile(route.slice(9));if(route.startsWith('deal:'))return dealDetail(route.slice(5));if(route==='deals')return dealsPage();if(route==='messages')return messagesPage();if(route==='reviews')return reviewsPage();if(route==='profile')return profilePage();if(role==='provider'){if(route==='offers')return providerOffers();if(route==='offer-new'||route.startsWith('offer-edit:'))return offerForm(route.startsWith('offer-edit:')?route.slice(11):null);if(route==='budget')return budgetPage();return providerDashboard();}if(route==='wallet')return walletPage();return marketplace();}
+function renderPage(){if(isLegalRoute(route))return legalPage(route,state,auth);if(['login','register','register-provider'].includes(route)){if(auth)return `<div class="panel auth-panel already-signed"><h1>Du bist angemeldet</h1><p>${esc(me()?.name||'Administration')}</p><a class="btn primary" href="${role==='admin'?'./admin.html':role==='provider'?'#dashboard':'#deals'}">Zu deinem Bereich</a><button class="btn secondary" data-action="logout">Abmelden</button></div>`;return authPage(route,loginEmail);}if(route==='test-access')return testAccessPage(state);if(route==='how')return howPage();if(route==='security')return securityPage();if(route==='cart')return cartPage(state,cartOwner(),{member:role==='member'});if(route==='checkout'){checkoutToken();return checkoutPage(state,auth.id,{draft:checkoutDraft,failure:checkoutFailed});}if(route==='orders'||route.startsWith('order:'))return ordersPage(state,role,auth.id,route.startsWith('order:')?route.slice(6):null);if(route==='market')return marketplace();if(route.startsWith('offer:'))return offerDetail(route.slice(6));if(route.startsWith('provider:'))return providerProfile(route.slice(9));if(route.startsWith('deal:'))return dealDetail(route.slice(5));if(route==='deals')return dealsPage();if(route==='messages')return messagesPage();if(route==='reviews')return reviewsPage();if(route==='profile')return profilePage();if(role==='provider'){if(route==='offers')return providerOffers();if(route==='offer-new'||route.startsWith('offer-edit:'))return offerForm(route.startsWith('offer-edit:')?route.slice(11):null);if(route==='budget')return budgetPage()+providerInvoicePanel(state,auth);return providerDashboard();}if(route==='wallet')return walletPage();return marketplace();}
 function offerCard(o){const p=state.providers.find(x=>x.id===o.providerId),available=M.offerAvailable(state,o)>=o.cashback+M.feeFor(o.cashback);return `<article class="offer-card ${o.purchase?'purchase-card':''}"><a href="#offer:${o.id}" class="offer-art art-${o.art}" aria-label="Angebot ansehen">${offerImage(o)|| (o.purchase?productArt(o):`<span class="art-orbit"></span>${icon(o.art)}<span class="art-label">${esc(categoryName(o.category))}</span>`)}<span class="art-cashback">${money(o.cashback)}<small>Cashback</small></span></a><div class="offer-card-body"><a href="#provider:${p.id}" class="provider-line"><span class="provider-initial">${initial(p.name)}</span>${userText(p.name)}${icon('shield')}</a><a href="#offer:${o.id}" class="offer-title">${userText(o.title)}</a><div class="offer-subcategory">${esc(classificationLabel(o))}</div><p>${userText(o.description)}</p><div class="offer-meta"><span>${o.purchase?money(o.purchase.unitCents/100):userText(o.price)}</span><span>${o.purchase?icon('cart')+'Kaufangebot':icon('pin')+userText(o.region)}</span></div><div class="offer-card-bottom"><span class="${available?'funds-ok':'text-amber'}">${icon(available?'check':'clock')}${available?'Prämienbudget gedeckt':'Budget ausgeschöpft'}</span><a href="#offer:${o.id}">${o.purchase?'Auswählen':'Details'} ${icon('arrow')}</a></div></div></article>`;}
 
 function subcategoryOptions(category,selected='',all=false){const values=subcategoriesFor(category);return opt('',all?'Alle Unterkategorien':values.length?'Bitte Unterkategorie wählen':'Keine Unterkategorien hinterlegt',selected)+values.map(v=>opt(v,v,selected)).join('');}
@@ -118,6 +121,28 @@ function clickHandler(e){const b=e.target.closest('button,a');if(!b||b.disabled)
  if(a==='scroll-offers')$('#market-results')?.scrollIntoView({behavior:'smooth',block:'start'});if(a==='close-modal')closeModal();if(a==='clear-filters'){filter={q:'',category:'',subcategory:'',region:'',min:'',sort:'recommended'};render();}
  if(a==='fund-deal')run(()=>M.fundExistingDeal(state,id,session.provider),'Budgetdeckung im Deal bestätigt.');
  if(a==='toggle-offer')run(()=>M.toggleOffer(state,id,session.provider),'Angebotsstatus aktualisiert.');
+ if(a==='invoice-fee'){
+  state=loadState();syncAuth();
+  run(()=>simulateFeePayment(state,auth,id),'Testzahlung erfasst. Musterrechnung unter Budget & Abrechnung verfügbar.');
+  return;
+ }
+ if(a==='invoice-pdf'||a==='invoice-print'){
+  const latest=loadState(),actor=Auth.currentAuth(latest);
+  const invoice=demoInvoices(latest,actor).find(document=>document.id===id);
+  if(!invoice){toast('Rechnung nicht verfügbar.');return;}
+  if(a==='invoice-print'){
+   try{printDemoInvoice(invoice);}catch(error){toast(error.message);}
+   return;
+  }
+  const load=async()=>{
+   const {demoInvoicePdf}=await import('./invoice-pdf.js');
+   const pdf=await demoInvoicePdf(invoice),current=Auth.currentAuth(loadState());
+   if(current?.id!==actor.id||current.role!==actor.role)throw Error('Bitte erneut anmelden.');
+   return pdf;
+  };
+  void showInvoiceFile(load,invoiceFilename(invoice.id,'pdf'),false).catch(error=>toast(error.message));
+  return;
+ }
  if(a==='receipt'){const d=myDeals().find(x=>x.id===id&&x.payment==='paid');if(d)download('BuyMe_Demobeleg_'+d.id+'.txt',`BUYME · DEMO-AUSZAHLUNGSBELEG\n\nDeal: ${d.id}\nMitglied: ${d.user}\nAnbieter: ${d.provider}\nAngebot: ${d.offer}\nPrämie: ${money(d.cashback)}\nStatus: ${PL[d.payment]}\nZahlungsreferenz: ${d.paymentRef}\n\nFiktiver Testbeleg. Keine echte Zahlung, keine Rechnung.`);}
  if(a==='export'){try{download('BuyMe_Eigene_Testdaten.json',JSON.stringify(participantDataExport(state,auth),null,2),'application/json');}catch(err){toast(err.message);}}
 }

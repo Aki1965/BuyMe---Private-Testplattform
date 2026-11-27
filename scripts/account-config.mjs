@@ -4,6 +4,7 @@ export function publicAccountConfig(env = process.env) {
   const enabled = env.BUYME_ACCOUNT_SIGNUP_ENABLED === 'true';
   const config = {
     enabled,
+    invoiceDocumentsEnabled: enabled && env.BUYME_INVOICE_DOCUMENTS_ENABLED === 'true',
     supabaseUrl: normal(env.SUPABASE_URL),
     publishableKey: normal(env.SUPABASE_PUBLISHABLE_KEY),
     appOrigin: normal(env.BUYME_APP_ORIGIN) || 'https://buyme.com.tr',

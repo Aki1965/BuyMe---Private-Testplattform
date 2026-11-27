@@ -15,6 +15,7 @@ for(const name of STATIC_ENTRIES)await cp(path.join(ROOT,name),path.join(output,
 const accountConfig=publicAccountConfig();
 await writeFile(path.join(output,'js/account-config.js'),'export const accountConfig = Object.freeze('+JSON.stringify(accountConfig)+');\n');
 await build({entryPoints:[path.join(ROOT,'js/account-page.js')],outfile:path.join(output,'js/account-page.js'),bundle:true,format:'esm',platform:'browser',target:['safari16','chrome110'],minify:true,legalComments:'linked',plugins:[{name:'public-account-config',setup(bundler){bundler.onResolve({filter:/^\.\/account-config\.js$/},()=>({path:'./account-config.js',external:true}));}}]});
+await build({entryPoints:[path.join(ROOT,'js/invoice-pdf.js')],outfile:path.join(output,'js/invoice-pdf.js'),bundle:true,format:'esm',platform:'browser',target:['safari16','chrome110'],minify:true,legalComments:'linked'});
 const licenses=path.join(output,'assets/licenses');
 await mkdir(licenses,{recursive:true});
 const lock=JSON.parse(await readFile(path.join(ROOT,'package-lock.json'),'utf8')),notices=[];
